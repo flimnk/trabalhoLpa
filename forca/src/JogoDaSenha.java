@@ -14,30 +14,29 @@ public class JogoDaSenha {
         String senhaDigitada;
         Scanner sc = new Scanner(System.in);
 
-        // Gerar a senha aleatória
+
         for (int i = 0; i < 4; i++) {
             senha[i] = random.nextInt(6) + 1;
         }
 
         System.out.println("Bem-vindo ao Jogo da Senha!");
 
-        // Loop principal do jogo
+
         do {
-            // Solicitar a senha do jogador
+
             System.out.println("Digite a sua tentativa de senha (4 dígitos de 1 a 6):");
             senhaDigitada = sc.next();
 
-            // Verificar se a senha digitada tem 4 dígitos
             if (senhaDigitada.length() != 4) {
                 System.out.println("A senha deve conter exatamente 4 dígitos. Tente novamente.");
-                continue; // Pula para a próxima iteração do loop
+                continue; 
             }
 
             numerosNaPosicaoCorreta = 0;
             numerosNaPosicaoErrada = 0;
             senhaAcertada = true;
 
-            // Verificar a senha digitada
+
             for (int i = 0; i < 4; i++) {
                 int digitoDigitado = senhaDigitada.charAt(i) - '0';
                 if (senha[i] == digitoDigitado) {
@@ -47,7 +46,7 @@ public class JogoDaSenha {
                 }
             }
 
-            // Verificar se a senha está correta
+
             if (numerosNaPosicaoCorreta == 4) {
                 System.out.println("╔══════════════════════════════════════╗");
                 System.out.println("║    🎉 Senha correta! Parabéns! 🎉    ║");
@@ -55,7 +54,7 @@ public class JogoDaSenha {
                 senhaAcertada = true;
                 break;
             } else {
-                // Exibir feedback para o jogador
+           
                 System.out.println("------------------------------------");
                 System.out.println("Senha incorreta!");
                 System.out.println("Dígitos corretos na posição certa: " + numerosNaPosicaoCorreta);
@@ -66,7 +65,7 @@ public class JogoDaSenha {
             }
         } while (numTentativas > 0);
 
-        // Mensagem de derrota se o jogador esgotar todas as tentativas
+
         if (numTentativas == 0) {
             System.out.println("╔══════════════════════════════════════╗");
             System.out.println("║  ❌ Senha incorreta! Derrota! ❌       ║");
